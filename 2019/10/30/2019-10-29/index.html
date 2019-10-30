@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP一、JSP九大内置对象（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二）">
+  <meta name="description" content="JSP/Servlet一、相同点： 处理后台逻辑，作为mvc控制；  9个内置对象(request、response、session、application、page、out、config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。page.setAttribute">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/10/30/2019-10-28/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/2019-10-29/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="JSP一、JSP九大内置对象（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二）">
+<meta property="og:description" content="JSP/Servlet一、相同点： 处理后台逻辑，作为mvc控制；  9个内置对象(request、response、session、application、page、out、config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。page.setAttribute">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-30T00:32:10.941Z">
+<meta property="og:updated_time" content="2019-10-30T00:44:16.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="JSP一、JSP九大内置对象（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二）">
+<meta name="twitter:description" content="JSP/Servlet一、相同点： 处理后台逻辑，作为mvc控制；  9个内置对象(request、response、session、application、page、out、config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。page.setAttribute">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,31 +154,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-10-28" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2019-10-29" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><p>（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。</p>
-<p>（二）Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响应页面的URL。</p>
-<p>（三）Session：该对象是客户端与服务器的一次会话，只要不关闭服务器的所有页面（离开这个服务器），就只视为一次会话。Session在第一个JSP页面被装载时自动创建，完成会话期管理。当一个客户首次访问服务器上的一个JSP页面时，JSP 引擎产生一个Session对象，同时分配一个String类型的ID号，JSP引擎同时将这换个ID号发送到客户端，存放在Cookie（要求服务器启用Cookie权限）中，这样Session对象，直到客户关闭浏览器后，服务器端该客户的Session对象才取消，并且和客户的会话对应系统消失。当客户重新打开浏览器再连接到该服务器时，服务器为该客户再重新创建一个新的Session对象拥有新的ID号。常用方法为String getId()获取ID号以及Boolean isNew()判断是否是一个新的客户。Session可以理解为线程私有的。</p>
-<p>（四）Application：服务器启动时产生，共享性。</p>
-<p>（五）Out：Out对象本质是一个输出流，用来向客户端输出数据。Out对象用于各种数据的输出。常用方法为：<br>out.print()：输出各种类型数据。<br>out.newLine()：输出一个换行符。<br>out.close()：关闭流。</p>
-<p>（六）Config：配置对象。</p>
-<p>（七）Page：页面。</p>
-<p>（八）PageContext：页面应用上下文环境。可通过该对象获取依赖于页面上下文环境的Node。</p>
-<p>（九）Exception：只有在处理异常的网页中可以直接访问exception隐式对象。</p>
-<h2 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h2><p>（一）JavaBean：&lt;jsp:useBean id=”XXX” class=”JavaBean的全限定名(page+calssName)”scope=”session” /&gt;</p>
-<p>（二）Session：session.setAttribute(String key,Object value)/seesion.getAttribute(String key)</p>
-<p>（三）Application:application.setAttribute(String key,Object value)/application.getAttribute(String key)</p>
-<p>（四）Request:<br>课堂笔记1028pm.md 10/28/2019 2/ 2<br>request.setParater(String key,String value)/request.getParater(String key)request.setAttribute(String key,Object value)/request.getAttribute(String key)</p>
-<p>（五）JSP动作指令：&lt;jsp:forward/redirect page=”XXX.jsp”&gt; &lt;jsp:param name=”key-x” value=”value-x”/&gt; &lt;jsp:param name=”key-y” value=”value-y” /&gt; &lt;/jsp:forward/redirect&gt;</p>
-<p>（六）Form表单：用户操作</p>
-<p>（七）URL传参：URL.jsp?参数1 的key=参数1的value&amp; 参数n的key=参数n 的value</p>
-<h2 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h2><p>（一）Application：共享、全局、服务器启动时产生，重启服务器销毁。可以包含很多个session。</p>
-<p>（二）Session：会话。隔离。生命周期是从用户发起链接服务器至彻底与服务器完全断开。可以包含很多个request。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。</p>
-<p>（三）Request：有效域是当前请求周期。所谓请求周期，就是指从http请求发起，到服务器处理结束，返回响应的整个过程。在这个过程中可能使用forward的方式跳转了多个jsp页面，在这些页面里你都可以使用这个变量。</p>
-<p>（四）Page：有效域是当前页面，可以把参数放入PageContext中，只有跳转就失效。</p>
+        <h2 id="JSP-Servlet"><a href="#JSP-Servlet" class="headerlink" title="JSP/Servlet"></a>JSP/Servlet</h2><h1 id="一、相同点："><a href="#一、相同点：" class="headerlink" title="一、相同点："></a>一、相同点：</h1><ol>
+<li><p>处理后台逻辑，作为mvc控制；</p>
+</li>
+<li><p>9个内置对象(request、response、session、application、page、out、config、pageContext、exception)，内置对象作用域：page &lt; request/response &lt; session &lt; application。page.setAttribute(“username”,”sam”);String id =page.getAttribute(“username”);request.setAttribute(“username”,”sam”); String id = request.getAttribute(“username”);session.setAttribute(“username”,”sam”); String id = session.getAttribute(“username”);application.setAttribute(“username”,”sam”); String id = application.getAttribute(“username”);</p>
+</li>
+<li><p>都可用Java语言。</p>
+</li>
+</ol>
+<h1 id="二、不同点："><a href="#二、不同点：" class="headerlink" title="二、不同点："></a>二、不同点：</h1><ol>
+<li>JSP可作为前端显示页面，Servlet只能作后台控制；</li>
+<li>JSP可内嵌html、EL、JSTL和Java，而Servlet只能有Java；      </li>
+<li>JSP控制不需要项目中去注册、而Servlet必须注册(web.xml/注解) </li>
+<li>JSP常作为小型项目，Servlet常用作<br>框架类的大型项目；<br>本堂课程知识要点<br>页面跳转 JSP Servlet<br>jsp如何获取数据，并显示出来(out对象)。<br>作业：用提交表单数据到jsp的方式，实现登录功能。<br>拓展：<br>Spring、SpringMVC(Struts2.0)、MyBatis SSM<br>SpringBoot SpringCloud</li>
+</ol>
 
       
 
@@ -258,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/30/2019-10-28/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/30/2019-10-29/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,17 +266,8 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/30/2019-10-29/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/22/2019-10-22/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/30/2019-10-28/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
